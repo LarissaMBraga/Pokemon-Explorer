@@ -36,7 +36,8 @@ export default function PokemonModal({
   const [evolutionError, setEvolutionError] = useState("");
   const touchStartX = useRef<number | null>(null);
 
-  const activePokemon = evolutions[activeIndex] ?? pokemon;
+  const activePokemon: EvolutionSlide | null =
+  evolutions[activeIndex] ?? pokemon;
   const accent = TYPE_COLORS[activePokemon?.types[0] ?? "normal"] ?? "#A78BFA";
 
   useEffect(() => {
