@@ -83,17 +83,19 @@ export const usePokemon = ({
     (nextPage: number) => {
       const totalPages = Math.ceil(total / PAGE_SIZE);
 
-      if (
-        nextPage < 1 ||
-        nextPage > totalPages ||
-        nextPage === page
-      ) {
+      if (nextPage < 1 || nextPage > totalPages) {
         return;
       }
 
-      setPageState(nextPage);
+      setPageState((currentPage) => {
+        if (nextPage === currentPage) {
+          return currentPage;
+        }
+
+        return nextPage;
+      });
     },
-    [page, total]
+    [total]
   );
 
   return {
