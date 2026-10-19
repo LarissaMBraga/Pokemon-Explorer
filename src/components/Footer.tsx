@@ -13,7 +13,7 @@ export default function Footer() {
 
             <div>
               <p className="text-sm font-black tracking-tight text-white">
-                PokéVerse<span className="text-violet-400">.</span>
+                PokéVerse<span className="text-violet-400"></span>
               </p>
               <p className="mt-1 text-[10px] text-white/35">
                 Discover your next favorite.

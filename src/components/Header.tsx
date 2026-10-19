@@ -26,7 +26,7 @@ export default function Header({
 
                     <div>
                         <p className="text-[15px] font-black tracking-tight text-white">
-                            PokéVerse<span className="text-violet-400">.</span>
+                            PokéVerse<span className="text-violet-400"></span>
                         </p>
                         <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-white/35">
                             Your Pokémon universe

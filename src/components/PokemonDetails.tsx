@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
-import { Ruler, Scale, Shield, Swords, Zap } from "lucide-react";
+import {
+  Ruler,
+  Scale,
+  Shield,
+  Swords,
+  Zap,
+} from "lucide-react";
 import type { Pokemon } from "../lib/api";
 import { TYPE_COLORS } from "../lib/constants";
 import { capitalize, formatHeight, formatWeight } from "../lib/utils";
@@ -27,17 +33,22 @@ const STAT_ICONS: Record<string, typeof Zap> = {
   speed: Zap,
 };
 
-export default function PokemonDetails({
-  pokemon,
-}: PokemonDetailsProps) {
+export default function PokemonDetails({ pokemon }: PokemonDetailsProps) {
   const accent = TYPE_COLORS[pokemon.types[0] ?? "normal"] ?? "#A78BFA";
+
   const totalStats = pokemon.stats.reduce(
     (total, stat) => total + stat.value,
-    0
+    0,
   );
 
   return (
-    <div className="space-y-7">
+    <motion.div
+      key={pokemon.id}
+      initial={{ opacity: 0, x: 12 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.22 }}
+      className="min-w-0 space-y-7"
+    >
       <div className="grid grid-cols-2 gap-3">
         <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4">
           <div className="mb-3 flex items-center gap-2 text-white/40">
@@ -65,7 +76,7 @@ export default function PokemonDetails({
       </div>
 
       <section>
-        <div className="mb-4 flex items-center justify-between">
+        <div className="mb-4 flex items-center justify-between gap-3">
           <h3 className="text-sm font-bold text-white">Base stats</h3>
           <span
             className="rounded-full px-3 py-1 text-xs font-bold"
@@ -101,8 +112,8 @@ export default function PokemonDetails({
                       width: `${Math.min((stat.value / 255) * 100, 100)}%`,
                     }}
                     transition={{
-                      duration: 0.65,
-                      delay: index * 0.07,
+                      duration: 0.5,
+                      delay: index * 0.04,
                       ease: "easeOut",
                     }}
                     className="h-full rounded-full"
@@ -125,6 +136,6 @@ export default function PokemonDetails({
           ))}
         </div>
       </section>
-    </div>
+    </motion.div>
   );
 }

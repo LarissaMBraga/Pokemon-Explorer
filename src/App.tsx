@@ -140,7 +140,7 @@ function App() {
 
                 <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl">
                   Explore Pokémon
-                  <span className="text-violet-400">.</span>
+                  <span className="text-violet-400"></span>
                 </h2>
 
                 <p className="mt-3 max-w-xl text-sm leading-6 text-white/40">
